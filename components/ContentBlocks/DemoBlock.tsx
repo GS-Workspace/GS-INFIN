@@ -28,6 +28,7 @@ const DemoBlock = ({
       <Image
         width={223}
         height={223}
+        priority
         src={String(images?.[1])}
         alt=""
         className="absolute bottom-[30px] right-[30px]"

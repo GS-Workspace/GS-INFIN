@@ -30,6 +30,7 @@ const ImageParallax = ({
         <Image
           {...rest}
           src={src}
+          priority
           alt={alt}
           fill={fill}
           quality={quality}
