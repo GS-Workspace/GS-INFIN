@@ -34,7 +34,6 @@ const BlockContainer = ({
           content={block}
         />
       ))}
-      <ContentBlocks isScrolledUp={isScrolledUp} key="meow" index={777} />
     </div>
   )
 }

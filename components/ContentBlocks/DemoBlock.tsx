@@ -46,7 +46,7 @@ const DemoBlock = ({
         />
         <LinkButton
           color={linkButton?.color}
-          className="text-xs font-medium"
+          className="text-xs font-medium uppercase"
           variant="button"
           link="/"
         >

@@ -43,7 +43,7 @@ const ContentBlocks = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const inView = useInView(containerRef, {
-    amount: 0.4
+    amount: 0.6
   })
   const isFixed = !inView && !isScrolledUp
   const formattedNumber = formatNumber(index + 1)
@@ -62,7 +62,7 @@ const ContentBlocks = ({
         id={`block-${index}`}
         style={{
           backgroundColor: content?.color,
-          bottom: isFixed ? `calc(-61% - ${35 * index}px)` : undefined,
+          height: isFixed ? `calc(140px - ${35 * index}px)` : '76%',
           position: isFixed ? 'fixed' : 'relative'
         }}
         transition={{
@@ -70,7 +70,7 @@ const ContentBlocks = ({
         }}
         layout="preserve-aspect"
         className={cn('relative h-[76%] w-full rounded-2xl', {
-          'w-[calc(100%-24px)]': isFixed
+          'bottom-0 w-[calc(100%-24px)] rounded-b-none': isFixed
         })}
       >
         {isFixed && (

@@ -1,4 +1,4 @@
-import Logo from '../Icons/Logo'
+import Image from 'next/image'
 import ThinkSeb from '../Icons/ThinkSeb'
 
 const Footer = () => {
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="relative w-full">
-        <Logo width={1380} height={240} />
+        <Image src="/images/logo.svg" alt="" width={2500} height={240} />
         <span className="absolute bottom-0 flex flex-row items-center gap-[10px] text-xs">
           <ThinkSeb />
           <span className="opacity-[40%]">© 2024 • Curated by</span>
