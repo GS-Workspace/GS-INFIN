@@ -25,7 +25,7 @@ const BlockContainer = ({
   })
 
   return (
-    <div ref={ref} className="flex flex-col">
+    <section ref={ref} className="flex flex-col">
       {cardContents.map((block, i) => (
         <ContentBlocks
           isScrolledUp={isScrolledUp}
@@ -34,7 +34,8 @@ const BlockContainer = ({
           content={block}
         />
       ))}
-    </div>
+      <ContentBlocks isScrolledUp={isScrolledUp} key="meow" index={777} />
+    </section>
   )
 }
 

@@ -1,13 +1,13 @@
-'use client'
-
 import { BlockContentType } from '@/data/data'
-import BusinessBlock from '../BusinessBlock'
 import { useRef } from 'react'
 import { MotionValue, useInView, useScroll, useTransform } from 'framer-motion'
 import { MotionDiv } from '../../UI/FramerMotion'
 import { cn, formatNumber } from '@/lib/utils'
-import ObjectiveBlock from '../ObjectiveBlock'
-import DemoBlock from '../DemoBlock'
+import dynamic from 'next/dynamic'
+
+const BusinessBlock = dynamic(() => import('../BusinessBlock'))
+const ObjectiveBlock = dynamic(() => import('../ObjectiveBlock'))
+const DemoBlock = dynamic(() => import('../DemoBlock'))
 
 const BlockComponent = ({
   content,
@@ -27,8 +27,6 @@ const BlockComponent = ({
       return <ObjectiveBlock index={index} content={content} />
     case 'demo':
       return <DemoBlock index={index} content={content} />
-    default:
-      return null
   }
 }
 
@@ -62,16 +60,20 @@ const ContentBlocks = ({
         id={`block-${index}`}
         style={{
           backgroundColor: content?.color,
-          height: isFixed ? `calc(140px - ${35 * index}px)` : '76%',
+          height: isFixed ? `calc(140px - ${35 * index}px)` : '',
           position: isFixed ? 'fixed' : 'relative'
         }}
         transition={{
           duration: 0.1
         }}
-        layout="preserve-aspect"
-        className={cn('relative h-[76%] w-full rounded-2xl', {
-          'bottom-0 w-[calc(100%-24px)] rounded-b-none': isFixed
-        })}
+        layout
+        className={cn(
+          'relative w-full overflow-hidden rounded-2xl md:h-[60%] lg:h-[70%] xl:h-[76%]',
+          {
+            'bottom-0 w-[calc(100%-24px)] rounded-b-none': isFixed,
+            'min-h-[500px]': !isFixed
+          }
+        )}
       >
         {isFixed && (
           <div

@@ -26,42 +26,39 @@ const BusinessBlock = ({
     >
       <div className="flex w-[70%] flex-col gap-10">
         <span className="text-sm font-medium">{formattedNumber}</span>
-        <AnimatedText text={title} className="w-[80%] text-[62px]" box="h2" />
+        <AnimatedText text={title} className="w-[80%]" box="h2" />
         {paragaphContents?.map((paragraph) => (
           <ParagraphBlock
             type={paragraph.type}
             key={paragraph.id}
             heading={paragraph?.title}
-            className={cn('[&_p]:text-[18px]', {
-              '[&_p]:text-sm': paragraph.type === 'list'
-            })}
             paragraph={paragraph.content}
           />
         ))}
       </div>
       {image && (
-        <div className="relative w-[30%] rounded-[20px]">
-          <ImageParallax
-            scale={scale}
-            src={image}
-            alt="business image"
-            quality={100}
-            fill
-            className="black h-full w-full"
-          />
-          {linkButton?.url && (
-            <LinkButton
-              link={linkButton?.url}
-              color={linkButton?.color}
-              textColor={linkButton?.textColor}
-              className={cn(
-                'absolute bottom-3 left-0 right-0 mx-auto flex w-[calc(100%-24px)] items-center justify-center text-sm font-medium'
-              )}
-              variant="button"
-            >
-              {linkButton?.text}
-            </LinkButton>
-          )}
+        <div className="h-content relative flex w-[30%] items-start rounded-[20px]">
+          <div className="relative">
+            <ImageParallax
+              scale={scale}
+              src={image}
+              alt="business image"
+              quality={70}
+            />
+            {linkButton?.url && (
+              <LinkButton
+                link={linkButton?.url}
+                color={linkButton?.color}
+                textColor={linkButton?.textColor}
+                className={cn(
+                  'absolute bottom-3 left-0 right-0 mx-auto flex w-[calc(100%-24px)] items-center justify-center text-sm font-bold'
+                )}
+                variant="button"
+              >
+                {linkButton?.text}
+              </LinkButton>
+            )}
+          </div>
         </div>
       )}
     </article>

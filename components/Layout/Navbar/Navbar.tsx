@@ -60,7 +60,7 @@ const Navbar = () => {
             }}
             className={cn('w-1/3 overflow-hidden')}
           >
-            <Logo className={cn('h-full max-w-full')} />
+            <Logo className={cn('h-full max-w-full [&_*]:hover:fill-white')} />
           </MotionDiv>
           <MenuLinks Links={navData.links} />
           <MotionDiv className="flex h-[60%] w-1/3 items-center justify-end">

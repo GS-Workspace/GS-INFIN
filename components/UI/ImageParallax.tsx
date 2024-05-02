@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils'
 import { MotionValue } from 'framer-motion'
 import Image from 'next/image'
 import { MotionDiv } from './FramerMotion'
@@ -7,34 +6,28 @@ const ImageParallax = ({
   src,
   alt,
   quality,
-  fill,
-  className,
-  scale,
-  ...rest
+  scale
 }: {
   src: string
   alt: string
   quality: number
-  fill: boolean
-  className: string
   scale: MotionValue<number>
 }) => {
   return (
-    <div className="h-full w-full overflow-hidden rounded-[20px]">
+    <div className="overflow-hidden rounded-[20px]">
       <MotionDiv
-        className="h-full w-full"
         style={{
           scale
         }}
       >
         <Image
-          {...rest}
           src={src}
           priority
           alt={alt}
-          fill={fill}
+          width={800}
+          height={1200}
           quality={quality}
-          className={cn(className)}
+          className="max-h-[70vh]"
         />
       </MotionDiv>
     </div>

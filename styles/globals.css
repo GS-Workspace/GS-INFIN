@@ -8,11 +8,23 @@
 }
 
 @layer base {
+  * {
+    @apply cursor-better;
+  }
+
+  button,
+  a {
+    @apply hover:cursor-hover;
+  }
   body {
     @apply min-h-screen bg-background text-foreground;
   }
 
   h2 {
-    @apply text-[64px] leading-none tracking-[-1%];
+    @apply leading-none tracking-[-1%] md:text-[30px] lg:text-[38px] xl:text-[54px] 2xl:text-[64px];
+  }
+
+  p {
+    @apply text-sm 2xl:text-base;
   }
 }
