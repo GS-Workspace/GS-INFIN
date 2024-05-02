@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import { LinkType } from './Navbar'
 import useNavAnimation from '@/lib/hooks/useNavAnimation'
 
-const MenuLinks = ({ Links }: { Links: LinkType }) => {
+const MenuLinks = ({ Links }: { Links: LinkType[] }) => {
   const { gridNumValue, isScrollingUp, isFullyHorizontal } = useNavAnimation(
     Links.length
   )

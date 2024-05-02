@@ -7,43 +7,54 @@ import { cn } from '@/lib/utils'
 import MenuLinks from './MenuLinks'
 import useNavAnimation from '@/lib/hooks/useNavAnimation'
 
-const navData = {
-  logo: 'Logo',
-  links: [
-    {
-      text: 'Home',
-      url: '#block-2'
-    },
-    {
-      text: 'For Businesses',
-      url: '/businesses'
-    },
-    {
-      text: 'For Individuals',
-      url: '/individuals'
-    },
-    {
-      text: 'Marketing Efforts',
-      url: '/marketing'
-    },
-    {
-      text: 'Blog',
-      url: '/blog'
-    }
-  ],
-  linkButton: {
-    text: 'Sign In',
-    url: '/signin',
-    color: 'primary'
-  }
-}
+// const navData = {
+//   logo: 'Logo',
+//   links: [
+//     {
+//       text: 'Home',
+//       url: '#block-2'
+//     },
+//     {
+//       text: 'For Businesses',
+//       url: '/businesses'
+//     },
+//     {
+//       text: 'For Individuals',
+//       url: '/individuals'
+//     },
+//     {
+//       text: 'Marketing Efforts',
+//       url: '/marketing'
+//     },
+//     {
+//       text: 'Blog',
+//       url: '/blog'
+//     }
+//   ],
+//   linkButton: {
+//     text: 'Sign In',
+//     url: '/signin',
+//     color: 'primary'
+//   }
+// }
 
 export type LinkType = {
   text: string
   url: string
-}[]
+}
 
-const Navbar = () => {
+const Navbar = ({
+  data
+}: {
+  data: {
+    navigationBar: {
+      id: string
+      items: {
+        links: LinkType[]
+      }
+    }
+  }
+}) => {
   const { menuHeight, logoHeight, contactButtonWidth } = useNavAnimation()
 
   return (
@@ -62,7 +73,7 @@ const Navbar = () => {
           >
             <Logo className={cn('h-full max-w-full [&_*]:hover:fill-white')} />
           </MotionDiv>
-          <MenuLinks Links={navData.links} />
+          <MenuLinks Links={data.navigationBar.items.links} />
           <MotionDiv className="flex h-[60%] w-1/3 items-center justify-end">
             <MotionDiv
               className="flex h-[100%] items-start justify-end"
