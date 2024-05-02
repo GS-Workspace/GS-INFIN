@@ -7,13 +7,15 @@ const ParagraphBlock = ({
   paragraph,
   type,
   className,
-  image
+  image,
+  isHero
 }: {
   heading?: string
   paragraph: string[]
   type?: string
   className?: string
   image?: string
+  isHero?: boolean
 }) => {
   const isList = type === 'list'
 
@@ -25,8 +27,9 @@ const ParagraphBlock = ({
       )}
     >
       <AnimatedText
-        className="w-[10%] text-xs leading-4 opacity-[40%]"
+        className="w-[10%] bg-opacity-100 text-xs leading-4 opacity-[40%]"
         text={String(heading)}
+        isHero={isHero}
         box="h4"
       />
       <div className={cn('flex w-4/5 flex-wrap items-start justify-between')}>
@@ -37,6 +40,7 @@ const ParagraphBlock = ({
               'w-1/2 pb-3 pr-[100px]': isList
             })}
             box="p"
+            isHero={isHero}
             text={String(paragraph)}
           />
         ))}

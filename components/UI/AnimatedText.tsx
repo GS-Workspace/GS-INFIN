@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { MotionSpan } from './FramerMotion'
 import { useInView } from 'framer-motion'
+import { cn } from '@/lib/utils'
 
 export const slideUp = {
   initial: {
@@ -23,21 +24,28 @@ export const slideUp = {
 const AnimatedText = ({
   text,
   box: Wrapper = 'p',
-  className
+  className,
+  isHero
 }: {
   text: string
   box?: keyof JSX.IntrinsicElements
   className?: string
+  isHero?: boolean
 }) => {
   const description = useRef(null)
   const isInView = useInView(description)
 
   return (
-    <Wrapper className={className}>
+    <Wrapper className={cn(className)}>
       <span className="sr-only">{text}</span>
       <span ref={description}>
         {text.split(' ').map((word, i) => (
-          <span className="relative inline-flex overflow-hidden" key={i}>
+          <span
+            className={cn('relative inline-flex overflow-hidden', {
+              'bg-background bg-opacity-100': isHero
+            })}
+            key={i}
+          >
             <MotionSpan
               variants={slideUp}
               custom={i}

@@ -17,7 +17,7 @@
     @apply hover:cursor-hover;
   }
   body {
-    @apply min-h-screen bg-background text-foreground;
+    @apply min-h-screen bg-[#C1C1C1] bg-opacity-100 text-foreground;
   }
 
   h2 {
